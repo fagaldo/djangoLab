@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang=" en ">
+<head>
+<title>{% block title %}Django LAB{% endblock %}</title>
+</head>
+<body>
+	{{ cars.model }}
+	{{ cars.brand }}
+	{{ cars.year }}
+	{{ cars.create_time }}
+	{{ cars.last_edit_time }}
+	
+	{% if user.is_authenticated %}
+		<a href="/cars/{{ cars.id }}/edit/">Edit car info</a>
+	{% endif %}
+	{% if user.is_authenticated %}
+		<a href="/cars/{{ cars.id }}/delete/">Delete car</a>
+	{% endif %}
+</body>
+</html>
+

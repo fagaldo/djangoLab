@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang=" en ">
+<head>
+<title>{% block title %}Django LAB{% endblock %}</title>
+</head>
+<body>
+	<a href="/">Home</a>
+	<a href="/news/">News</a>
+	{% if user.is_authenticated %}
+	<a href="/logout/">Logout</a>
+	{% endif %}
+	{% block content %}{% endblock %}
+	{% if cars %}
+    <ul>
+    {% for c in cars %}
+    <li><a href="/cars/{{ c.id }}/">{{ c.model }} {{ c.brand }}</a></li>
+    {% endfor %}
+    </ul>
+	{% else %}
+		<p>No cars are available.</p>
+	{% endif %}
+
+	{% if user.is_authenticated %}
+	<a href="/cars/add/">Add car</a>
+	{% endif %}
+	
+	
+</body>
+</html>

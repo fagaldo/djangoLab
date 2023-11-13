@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Django LAB</title>
+</head>
+<body>
+
+<h2>Delete News</h2>
+
+<p>Are you sure you want to delete this news? "{{ news.topic }} {{ news.text }} {{ news.author }}"?</p>
+
+<form method="post">
+    {% csrf_token %}
+    <input type="submit" value="Delete">
+</form>
+
+<a href="{% url 'view_news' %}">Back to news list</a>
+
+</body>
+</html>

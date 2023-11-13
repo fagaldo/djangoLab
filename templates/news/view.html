@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang=" en ">
+<head>
+<title>{% block title %}Django LAB{% endblock %}</title>
+</head>
+<body>
+	{{ news.topic }}
+	{{ news.author }}
+	{{ news.text }}
+	{{ news.create_time }}
+	{{ news.last_edit_time }}
+	
+	{% if user.is_authenticated %}
+		<a href="/news/{{ news.id }}/edit/">Edit news</a>
+	{% endif %}
+	{% if user.is_authenticated %}
+		<a href="/news/{{ news.id }}/delete/">Delete news</a>
+	{% endif %}
+</body>
+</html>
+
